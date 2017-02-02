@@ -37,7 +37,8 @@
     "morgan-body": "^0.9.5",
     "odata-parser": "mozilla-sensorweb/node-odata-parser",
     "pg": "^6.1.0",
-    "sequelize": "^3.24.4"
+    "sequelize": "^3.24.4",
+    "cd-metrics": "0.0.14"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",

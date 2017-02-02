@@ -14,7 +14,8 @@ const config = {
     name: 'sensorthingsexample',
     user: 'postgres',
     password: '12345678'
-  }
+  },
+  analytics: 'true'
 };
 
 app.use('/', SensorThings(config));

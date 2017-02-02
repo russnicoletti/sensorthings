@@ -8,7 +8,11 @@ import { snake } from 'case';
 
 // Middlewares
 import associations from './middlewares/associations';
-import queryParser from './middlewares/query_parser';
+import queryParser  from './middlewares/query_parser';
+import {
+  initAnalytics,
+  analyticsRouter
+}                   from './middlewares/analytics';
 
 // Models
 import db from './models/db';
@@ -32,6 +36,7 @@ module.exports = (config) => {
   const version = config.api_version || API_VERSION;
 
   db(config.db);
+  initAnalytics(config.analytics);
 
   let router = express.Router();
 
@@ -40,6 +45,7 @@ module.exports = (config) => {
   }
 
   router.use('/' + version + '/', baseRouter);
+  router.use('/' + version + '/', analyticsRouter);
 
   const routeExpr = route.generate(version);
   router.use(routeExpr, associations(version));
